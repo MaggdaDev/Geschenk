@@ -1,6 +1,6 @@
 const http = require('http');
 
-const host = "minortom";
+const host = "minortom.net";
 const port = "12345";
 
 function redirect(link) {
