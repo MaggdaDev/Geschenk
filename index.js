@@ -21,6 +21,7 @@ const htmls = [
 var counter = 0;
 var lastGet = Date.now();
 const requestListener = function (req, res) {
+    console.log(req.rawHeaders[10]);
     if (req.rawHeaders[10].includes('Insecure')) {
         res.writeHeader(200, { "Content-Type": "text/html" });
         res.write(htmls[counter]);
