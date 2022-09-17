@@ -1,6 +1,6 @@
 const http = require('http');
 
-const host = "localhost";
+const host = "minortom.net";
 const port = "12345";
 
 const requestListener = function (req, res) {
