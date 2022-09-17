@@ -1,33 +1,32 @@
 const http = require('http');
+const url = require('url');
 
 const host = "minortom.net";
-const port = "12345";
+const port = "0917";
 
 function redirect(link) {
     return '<meta http-equiv="refresh" content="0; url=' + link + '" />';
 }
 
-function incrementCounter() {
-    counter += 1;
-    counter %= htmls.length;
+
+const htmls = {
+    69: redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"),
+    42: redirect("https://www.youtube.com/watch?v=djV11Xbc914&ab_channel=a-ha"),
+    666: redirect("https://www.youtube.com/watch?v=k3BWCHB2QZg&ab_channel=Galileel")
+
 }
-
-const htmls = [
-    redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ&ab_channel=RickAstley"),
-    redirect("https://www.youtube.com/watch?v=djV11Xbc914&ab_channel=a-ha"),
-    redirect("https://www.youtube.com/watch?v=k3BWCHB2QZg&ab_channel=Galileel")
-
-]
-var counter = 0;
-var lastGet = Date.now();
 const requestListener = function (req, res) {
-    console.log(req.rawHeaders[10]);
-    if (req.rawHeaders[10].includes('Insecure')) {
-        res.writeHeader(200, { "Content-Type": "text/html" });
-        res.write(htmls[counter]);
-        console.log("Sending " + counter + "th");
-        incrementCounter();
-        res.end();
+    try {
+        var query = url.parse(req.url, true).query;
+        if (query && query.deinemutter && htmls[query.deinemutter]) {
+            res.writeHeader(200, { "Content-Type": "text/html" });
+            res.write(htmls[query.deinemutter]);
+            console.log("sending with id " + query.deinemutter);
+            res.end();
+        }
+
+    } catch (error) {
+        console.log(error);
     }
 };
 
