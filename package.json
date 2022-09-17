@@ -1,0 +1,19 @@
+{
+  "name": "geschenk",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaggdaDev/Geschenk.git"
+  },
+  "author": "maggda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaggdaDev/Geschenk/issues"
+  },
+  "homepage": "https://github.com/MaggdaDev/Geschenk#readme"
+}
