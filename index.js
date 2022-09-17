@@ -2,7 +2,7 @@ const http = require('http');
 const url = require('url');
 
 const host = "minortom.net";
-const port = "0917";
+const port = "040917";
 
 function redirect(link) {
     return '<meta http-equiv="refresh" content="0; url=' + link + '" />';
